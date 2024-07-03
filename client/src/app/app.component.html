@@ -1,1 +1,10 @@
 <h1>{{ title }}</h1>
+<ul>
+  <!--Structural Directive NgFor, it manipulates the DOM -->
+  <li *ngFor="let user of users">
+    <div>
+      <p>Name: {{ user.userName }}</p>
+      <p>ID: {{ user.id }}</p>
+    </div>
+  </li>
+</ul>
