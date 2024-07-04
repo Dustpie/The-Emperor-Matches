@@ -17,6 +17,7 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 // Enable middleware
+// Enabled CORS (cross origin resource sharing)
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200", "https://localhost:4200"));
 app.MapControllers();
 
