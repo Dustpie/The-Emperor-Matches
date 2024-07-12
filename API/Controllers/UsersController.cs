@@ -5,26 +5,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
-[ApiController]
-[Route("api/[controller]")] // /api/users
-public class UsersController(DataContext context) : ControllerBase // Primary Constructor
+/**
+ * ControllerBase is a class that has all the functionality of a controller
+ * We can use ControllerBase instead of Controller
+ * ControllerBase is a more lightweight version of Controller
+ */
+public class UsersController(DataContext context) : BaseApiController // Primary Constructor
 {
-    /*
-     * Old way Constructor
-     * private readonly DataContext context
-     *
-     * public UsersController(DataContext context)
-     * {
-     * this.context = context; or _context = context;
-     * }
-     */
-
     [HttpGet] // We can only have one of each Request Type per controller
-    public async Task <ActionResult<IEnumerable<User>>> GetUsers() // We make the request async, so one request doesn't block others.
+    public async Task<ActionResult<IEnumerable<User>>> GetUsers()
     {
         var users = await context.Users.ToListAsync();
         // return NotFound(users); --> We can directly return an HTTP response containing the list
-        return users; // Automatically creates an "Ok" HTTP request
+        return Ok(users); // Automatically creates an "Ok" HTTP request
     }
 
     [HttpGet("{id:int}")] // /api/users/3 --> Brackets are needed for the dynamic ID of the users and :int is for type safety
@@ -33,6 +26,6 @@ public class UsersController(DataContext context) : ControllerBase // Primary Co
         var user = await context.Users.FindAsync(id);
         if (user == null) return NotFound();
 
-        return user;
+        return Ok(user);
     }
 }
