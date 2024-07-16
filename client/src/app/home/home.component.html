@@ -14,7 +14,9 @@
     } @else {
     <div class="container">
       <div class="row justify-content-center">
-        <app-register [usersFromHomeComponent]="users"></app-register>
+        <app-register
+          (cancelRegister)="cancelRegisterMode($event)"
+        ></app-register>
       </div>
     </div>
     }
