@@ -11,6 +11,7 @@ namespace API.Controllers;
  * We can use ControllerBase instead of Controller
  * ControllerBase is a more lightweight version of Controller
  */
+ [AllowAnonymous]
 public class UsersController(DataContext context) : BaseApiController // Primary Constructor
 {
     [AllowAnonymous]
@@ -19,7 +20,7 @@ public class UsersController(DataContext context) : BaseApiController // Primary
     {
         var users = await context.Users.ToListAsync();
         // return NotFound(users); --> We can directly return an HTTP response containing the list
-        return Ok(users); // Automatically creates an "Ok" HTTP request
+        return Ok(users); // Returning the users variable creates automatically an "Ok" HTTP request
     }
     [Authorize]
     [HttpGet("{id:int}")] // /api/users/3 --> Brackets are needed for the dynamic ID of the users and :int is for type safety
