@@ -1,2 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 @import "ngx-toastr/toastr";
+
+/** .container-body {
+  margin-top: 9rem !important;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+.container-body {
+  display: flex;
+  flex-direction: column; /* Aligns children (heading and button) in a vertical stack */
+  align-items: center; /* Centers children along the cross axis (horizontal centering) */
+  justify-content: center; /* Optional: Centers children along the main axis (vertical centering) */
+  height: 100vh; /* Takes full height of the viewport, adjust as necessary */
+}
+
+@media (max-width: 768px) {
+  .container-body {
+    margin-top: 56px; /* Adjust this value based on your navbar's height on mobile */
+    height: calc(
+      100vh - 56px
+    ); /* Subtract navbar height to take full height of the viewport */
+  }
+}

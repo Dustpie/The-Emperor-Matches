@@ -1,3 +1,5 @@
+using API.Extensions;
+
 namespace API.Entities;
 
 
@@ -11,10 +13,39 @@ public class User
     // By using [Key] attribute, we are telling Entity Framework that this is the primary key
     public int Id { get; set; }
     public required string UserName { get; set; }
-    public required byte[] PasswordHash { get; set; }
-    public required byte[] PasswordSalt { get; set; }
-
-    public User()
-    {
-    }
+    public byte[] PasswordHash { get; set; } = [];
+    public byte[] PasswordSalt { get; set; } = [];
+    
+    public DateOnly DateOfBirth { get; set; }
+    
+    public required string KnownAs { get; set; }
+    
+    public DateTime Created { get; set; } = DateTime.UtcNow;
+    
+    public DateTime LastActive { get; set; } = DateTime.UtcNow;
+    
+    public required string Gender { get; set; }
+    
+    public string? Introduction { get; set; }
+    
+    public string? LookingFor { get; set; }
+    
+    public string? Interests { get; set; }
+    
+    public string? City { get; set; }
+    
+    public string? Country { get; set; }
+    public List<Photo> Photos { get; set; } = []; // NAVIGATION PROPERTY
+    
+    /*
+    public required HomeWorld HomeWorld { get; set; }
+    
+    public required bool ChaosTainted { get; set; }
+    
+    public required Faction Faction { get; set; }
+    
+    public List<Army> Armies { get; set; }
+    
+    **/     
+    
 }
