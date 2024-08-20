@@ -1,0 +1,24 @@
+<div class="container-body">
+  <h1 class="heading">Internal Server Error</h1>
+  @if(error) {
+  <h4 class="text-danger">Error: {{ error.message }}</h4>
+  <button class="btn btn-info btn-lg" routerLink="/">
+    Return to home page
+  </button>
+  <div class="container">
+    <p>What to do next?</p>
+    <ol>
+      <li>Open chrome dev tools and check network request.</li>
+      <li>Examine the URL.</li>
+      <li>Reproduce the error in Postman.</li>
+    </ol>
+    <p class="font-weight-bold">
+      Following is the stack trace - check the first 2 lines this tells you
+      exactly which line of code caused the problem!
+    </p>
+    <code class="mt-5" style="background-color: whitesmoke">{{
+      error.details
+    }}</code>
+  </div>
+  }
+</div>
