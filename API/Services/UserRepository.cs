@@ -1,13 +1,29 @@
 using API.Data;
+using API.DTOs;
 using API.Entities;
 using API.Interfaces;
+using AutoMapper;
+using AutoMapper.Execution;
+using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Services;
 
-public class UserRepository(DataContext context) : IUserRepository
+public class UserRepository(DataContext context, IMapper mapper) : IUserRepository
 {
+    public async Task<IEnumerable<MemberDto>> GetMembersAsync()
+    {
+        return await context.Users
+            .ProjectTo<MemberDto>(mapper.ConfigurationProvider)
+            .ToListAsync();
+    }
     
+    public async Task<MemberDto?> GetMemberAsync(string username)
+    {
+        return await context.Users
+            .Where(x => x.UserName == username).ProjectTo<MemberDto>(mapper.ConfigurationProvider)
+            .SingleOrDefaultAsync();
+    }
     public void Update(User user)
     {
         context.Entry(user).State = EntityState.Modified;
@@ -20,7 +36,7 @@ public class UserRepository(DataContext context) : IUserRepository
 
     public async Task<IEnumerable<User>> GetUsersAsync()
     {
-        return await context.Users.ToListAsync();
+        return await context.Users.Include(p => p.Photos).ToListAsync(); // Eager loading the photos
     }
 
     public async Task<User?> GetUserByIdAsync(int id)
@@ -30,7 +46,7 @@ public class UserRepository(DataContext context) : IUserRepository
 
     public async Task<User?> GetUserByUsernameAsync(string username)
     {
-        return await context.Users.SingleOrDefaultAsync(x => x.UserName == username);
+        return await context.Users.Include(p => p.Photos).SingleOrDefaultAsync(x => x.UserName == username);
     }
     
     

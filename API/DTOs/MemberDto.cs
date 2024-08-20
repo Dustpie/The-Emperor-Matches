@@ -8,7 +8,7 @@ public class MemberDto
     
     public required string? Username { get; set; }
     
-    public int age { get; set; }
+    public int Age { get; set; }
     
     public string? KnownAs { get; set; }
     
@@ -28,7 +28,7 @@ public class MemberDto
     
     public string? Country { get; set; }
     
-    public Photo MainPhotoUrl { get; set; }
+    public string? PhotoUrl { get; set; }
     
     public List<PhotoDto>? Photos { get; set; }
 }

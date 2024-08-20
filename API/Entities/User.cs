@@ -35,12 +35,10 @@ public class User
     public string? City { get; set; }
     
     public string? Country { get; set; }
-    
-    public Photo MainPhotoUrl { get; set; } // NAVIGATION PROPERTY
-    
     public List<Photo> Photos { get; set; } = []; // NAVIGATION PROPERTY
     
-    /** public required HomeWorld HomeWorld { get; set; }
+    /*
+    public required HomeWorld HomeWorld { get; set; }
     
     public required bool ChaosTainted { get; set; }
     
@@ -49,9 +47,5 @@ public class User
     public List<Army> Armies { get; set; }
     
     **/     
-
-    public int GetAge()
-    {
-        return DateOfBirth.CalculateAge();
-    }
+    
 }
