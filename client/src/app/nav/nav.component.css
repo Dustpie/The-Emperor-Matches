@@ -2,3 +2,11 @@
 .dropdown-item {
   cursor: pointer;
 }
+.navbar {
+  height: 50px; /* Adjust this value to your desired navbar height */
+}
+
+.navbar-brand,
+.nav-link {
+  line-height: 50px; /* Adjust this value to vertically center the content */
+}
