@@ -14,7 +14,7 @@ builder.Services.AddIdentityServiceExtension(builder.Configuration);
 
 
 var app = builder.Build();
-
+// Middleware
 // Configure the HTTP request pipeline.
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod()

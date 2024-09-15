@@ -1,5 +1,8 @@
 namespace API.Extensions;
 
+/**
+ * This class contains extension methods for the DateTime class
+ */
 public static class DateTimeExtensions
 {
     public static int CalculateAge(this DateOnly dob)

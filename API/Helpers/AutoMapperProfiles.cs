@@ -5,6 +5,10 @@ using AutoMapper;
 
 namespace API.Helpers;
 
+/**
+ * This class is used to map the properties of the User entity to the properties of the MemberDto
+ * This is done using the AutoMapper library
+ */
 public class AutoMapperProfiles : Profile
 {
     
@@ -17,6 +21,7 @@ public class AutoMapperProfiles : Profile
                 options => options.MapFrom(
                     source => source.Photos.FirstOrDefault(photo => photo.IsMain)!.Url));
         CreateMap<Photo, PhotoDto>();
+        CreateMap<MemberUpdateDTO, User>();
     }
 
 }
