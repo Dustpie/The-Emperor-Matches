@@ -1,9 +1,11 @@
 using API.DTOs;
 using API.Entities;
-using AutoMapper.Execution;
 
 namespace API.Interfaces;
 
+/**
+ * This interface is used to define the methods that will be used to interact with the User table in the database
+ */
 public interface IUserRepository
 {
     void Update(User user);

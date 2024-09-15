@@ -3,12 +3,14 @@ using API.DTOs;
 using API.Entities;
 using API.Interfaces;
 using AutoMapper;
-using AutoMapper.Execution;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Services;
 
+/**
+ * This class is a repository class that implements the IUserRepository interface
+ */
 public class UserRepository(DataContext context, IMapper mapper) : IUserRepository
 {
     public async Task<IEnumerable<MemberDto>> GetMembersAsync()

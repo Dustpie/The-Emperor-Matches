@@ -7,6 +7,10 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace API.Services;
 
+/**
+ * This class is used to create a token for the user
+ * This token is used for authentication
+ */
 public class TokenService(IConfiguration config) : ITokenService
 {
     public string CreateToken(User user)
