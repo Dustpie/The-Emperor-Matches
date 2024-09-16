@@ -13,7 +13,7 @@
   flex-direction: column; /* Aligns children (heading and button) in a vertical stack */
   align-items: center; /* Centers children along the cross axis (horizontal centering) */
   justify-content: center; /* Optional: Centers children along the main axis (vertical centering) */
-  height: 100vh; /* Takes full height of the viewport, adjust as necessary */
+  height: 80vh; /* Takes full height of the viewport, adjust as necessary */
 }
 
 @media (max-width: 768px) {
