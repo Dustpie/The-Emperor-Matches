@@ -1,0 +1,11 @@
+.form-floating {
+  position: relative;
+  min-height: 40px; /* Adjust this value as needed */
+}
+
+/* Ensure there's always space for error messages */
+.form-floating::after {
+  content: "";
+  display: block;
+  height: 20px; /* Should match the bottom value of .invalid-feedback */
+}
